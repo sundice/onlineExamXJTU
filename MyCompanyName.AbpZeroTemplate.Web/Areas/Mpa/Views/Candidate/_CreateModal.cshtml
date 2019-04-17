@@ -1,0 +1,38 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Areas.Mpa.Models.Common.Modals
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("添加考生"))
+
+<div class="modal-body">
+    <form name="CandidateForm">
+        @*<input type="hidden" name="Id" value="@Model.Id" />*@
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="number" name="CandidateID" class="form-control edited" required>
+            <label>学号</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Name" class="form-control edited">
+            <label>姓名</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Sex" class="form-control edited">
+            <label>性别</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="number" name="Class" class="form-control edited">
+            <label>班级</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Major" class="form-control edited">
+            <label>专业</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="CreationTime" class="form-control edited">
+            <label>录入时间</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Remarks" class="form-control edited">
+            <label>备注</label>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

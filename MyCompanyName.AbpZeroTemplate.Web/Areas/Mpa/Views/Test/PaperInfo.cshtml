@@ -1,0 +1,114 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Navigation
+@using Abp.Web.Mvc.Extensions
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Test;//上面所定义就是这个常量，作用就是选中菜单时会高亮
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Test/Progess.css")
+    @Html.IncludeStyle("~/libs/bootstrap-table/bootstrap-table.css")
+}
+
+@section Scripts
+{
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table.js")
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table-zh-CN.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Test/PaperInfo.js")
+
+}
+
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>新建试卷</span> <small>试卷信息</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>@*试卷浏览*@
+
+<div class="portlet light margin-bottom-10">
+
+    <div id="step">
+        <div class="step-wrap">
+            <div class="step-bg"></div>
+            <div class="step-progress"></div>
+            <ul class="step">
+                <li class="step-item active">
+                    <div class="step-item-num"><span>1</span></div>
+                    <div class="step-item-title">试卷信息</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>2</span></div>
+                    <div class="step-item-title">备选题集</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>3</span></div>
+                    <div class="step-item-title">组卷方式</div>
+                <li class="step-item">
+                    <div class="step-item-num"><span>4</span></div>
+                    <div class="step-item-title">组卷完成</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>@*进度条*@
+<div id="RefreshDiv">
+    <div class="portlet light">
+        <form id="PaperInfoForm" class="form-horizontal margin-bottom-5">
+            <div class=" form-group ">
+                <label for="PaperNameInput" class="col-md-2 control-label">试卷名称：</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="PaperName" placeholder="请输入试卷名称" />
+                </div>
+            </div>
+            <div class=" form-group ">
+                <label for="CourseItemDrop" class="col-md-2 control-label">考试科目：</label>
+                <div class="col-md-2">
+                    @Html.DropDownList("CourseItem", ViewData["CourseItem"] as SelectList, "--请选择--", new { id = "CourseSelect", @class = "form-control" })
+                </div>
+            </div>
+            <div class=" form-group ">
+                <label for="PaperDegreeInput" class="col-md-2 control-label">试卷难度：</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="PaperDegree" placeholder="请输入试卷难度" />
+                </div>
+            </div>
+            <div class=" form-group ">
+                <label for="PaperAuthorInput" class="col-md-2 control-label">出题人：</label>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" name="PaperAuthor" placeholder="请输入出题人" />
+                </div>
+            </div>
+            <div class=" form-group ">
+                <label for="PaperRemarksInput" class="col-md-2 control-label">试卷描述：</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" name="PaperRemarks" placeholder="请输入试卷描述"></textarea>
+                </div>
+            </div>
+        </form>@*需要刷新的表单*@
+
+        <div class="row margin-bottom-0">
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" id="IndexPreStep" class="btn btn-default">上一步</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="IndexNextStep" class="btn btn-primary">下一步</button>
+            </div>
+
+        </div>@*按钮异步刷新*@
+    </div>
+</div>
+<div id="footer1" style="text-align: center; font-size: 9pt; background-image: url(Images/题库中间背景2.jpg); background-repeat: repeat-y; height: 63px; width: 1000px; margin: 0 auto; padding-top: 15px;">
+    地址：陕西省西安市咸宁西路28号&nbsp; 邮编：710049<br />
+    网址:www.xjtu.edu.cn&nbsp; 邮箱：xjetec@mail.xjtu.edu.cn<br />
+    版权所有：西安交通大学计算机教学实验中心
+</div>
+
+

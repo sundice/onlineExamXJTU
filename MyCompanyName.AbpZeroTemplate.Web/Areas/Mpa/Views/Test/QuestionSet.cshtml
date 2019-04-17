@@ -1,0 +1,106 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Navigation
+@using Abp.Web.Mvc.Extensions
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Test;//上面所定义就是这个常量，作用就是选中菜单时会高亮
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Test/Progess.css")
+    @Html.IncludeStyle("~/libs/bootstrap-table/bootstrap-table.css")
+}
+
+@section Scripts
+{
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table.js")
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table-cookie.js")
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table-zh-CN.js")
+
+    @Html.IncludeScript("~/Areas/Mpa/Views/Test/QuestionSet.js")
+
+}
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>新建试卷</span> <small>备选题集</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-10">
+
+    <div id="step">
+        <div class="step-wrap">
+            <div class="step-bg"></div>
+            <div class="step-progress"></div>
+            <ul class="step">
+                <li class="step-item active">
+                    <div class="step-item-num"><span>1</span></div>
+                    <div class="step-item-title">试卷信息</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>2</span></div>
+                    <div class="step-item-title">备选题集</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>3</span></div>
+                    <div class="step-item-title">组卷方式</div>
+                <li class="step-item">
+                    <div class="step-item-num"><span>4</span></div>
+                    <div class="step-item-title">组卷完成</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>@*进度条*@
+<div id="RefreshDiv">
+    <div class="portlet light">
+        <form id="QuestionForm" class="form-inline">
+            <div class="form-group">
+                <label for="CourseNameSelect" class="control-label ">
+                    <strong>课程</strong>
+                </label>
+                @Html.DropDownList("CourseNameItem", ViewData["CourseNameItem"] as SelectList, "--请选择--", new { id = "CourseNameSelect", @class = "form-control " })
+            </div>
+            <div class="form-group">
+                <label for="ScopeSelect" class="control-label">
+                    <strong>章节</strong>
+                </label>
+                @Html.DropDownList("ScopeItem", ViewData["ScopeItem"] as SelectList, "--请选择--", new { id = "ScopeSelect", @class = "form-control" })
+
+            </div>
+            <div class="form-group">
+                <label for="KnowledgePointSelect" class="control-label">
+                    <strong>知识点</strong>
+                </label>
+                @Html.DropDownList("KnowledgePointItem", ViewData["KnowledgePointItem"] as SelectList, "--请选择--", new { id = "KnowledgePointSelect", @class = "form-control" })
+            </div>
+            <button id="AddQuestionSetBtn" class="btn btn-primary pull-right">增加</button>
+        </form>@*过滤条件*@
+        <table id="PaperStrategyTable"></table>
+
+        <div class="row margin-bottom-0">
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" id="SetPreStep" class="btn btn-default">上一步</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="SetNextStep" class="btn btn-primary">下一步</button>
+            </div>
+
+        </div>@*步骤按钮*@
+    </div>
+</div>
+<div id="footer1" style="text-align: center; font-size: 9pt; background-image: url(Images/题库中间背景2.jpg); background-repeat: repeat-y; height: 63px; width: 1000px; margin: 0 auto; padding-top: 15px;">
+    地址：陕西省西安市咸宁西路28号&nbsp; 邮编：710049<br />
+    网址:www.xjtu.edu.cn&nbsp; 邮箱：xjetec@mail.xjtu.edu.cn<br />
+    版权所有：西安交通大学计算机教学实验中心
+</div>
+
+

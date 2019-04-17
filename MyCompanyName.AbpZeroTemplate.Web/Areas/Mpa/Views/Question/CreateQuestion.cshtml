@@ -1,0 +1,371 @@
+﻿@using Abp.Web.Mvc.Extensions
+@using MyCompanyName.AbpZeroTemplate.Web.Navigation
+@model IEnumerable<System.Web.Mvc.SelectListItem>
+@{
+    ViewBag.CurrentPageName = PageNames.App.Host.QuestionCreate;
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Welcome/eztestadmin.css")
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Welcome/eztestapp.css")
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Welcome/eztestcategory.css")
+}
+@section Scripts{
+    @Html.IncludeScript("~/libs/tinymce/tinymce.js")
+    @Html.IncludeScript("~/Scripts/angular.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Question/CreateQuestion.js");
+    
+}
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>添加试题</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default panel-customize panel-item-edit">
+
+    <div ng-app="">
+        <div class="panel-body">
+            <!--questionItem config-->
+            <div class="item-edit-config">
+                <form id="QuestionForm">
+                    <div class="row">
+                        <!-- 科目选择 -->
+                        <div class="form-group item-edit-d col-xs-3">
+                            <span class="pull-left"><strong>科目：</strong></span>
+                            @Html.DropDownList("CourseNameItem", ViewData["CourseNameItem"] as SelectList, "--请选择--", new { id = "CourseSelect", @class = "form-control", @style = "width:auto" })
+                        </div>
+
+                        <!-- 章节点选择 -->
+                        <div class="form-group item-edit-d col-xs-3">
+                            <span class="pull-left"><strong>章节：</strong></span>
+                            @Html.DropDownList("ScopeItem", ViewData["ScopeItem"] as SelectList, "--请选择--", new { id = "ScopeSelect", @class = "form-control", @style = "width:auto" })
+
+                        </div>
+
+                        <!-- 知识点选择 -->
+                        <div class="form-group item-edit-d col-xs-3">
+                            <span class="pull-left"><strong>知识点：</strong></span>
+                            @Html.DropDownList("KnowledgePointItem", ViewData["KnowledgePointItem"] as SelectList, "--请选择--", new { id = "KnowledgePointSelect", @class = "form-control", @style = "width:auto" })
+
+                        </div>
+                        <!-- 题型选择 -->
+                        <div class="form-group item-edit-d col-xs-3">
+                            <span class="pull-left"><strong>题型：</strong></span>
+                            <select class="form-control" id="QTypeSelect" name="QTypeItem" style="width:auto" ng-model="Qtype"ng-init="Qtype='5'">
+                                
+                                <option value="0">单选题</option>
+                                <option value="1">多选题</option>
+                                <option value="2">判断题</option>
+                                <option value="3">填空题</option>
+                                <option value="4">问答题</option>
+                                <option value="5">综合题</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <!-- 难度 -->
+                        <div class="form-group item-edit-d col-xs-3">
+                            <span class="pull-left"><strong>难度：</strong></span>
+                            @Html.DropDownList("DegreeItem", ViewData["DegreeItem"] as SelectList, "--请选择--", new { id = "DegreeSelect", @class = "form-control", @style = "width:auto" })
+
+                        </div>
+                        <!-- 出题人 -->
+                        <div class="form-group col-xs-6">
+                            <span class="pull-left"><strong>出题人：</strong></span>
+                            <input id="AuthorInput" name="Author" type="text" style="font-size:15px;height:27.2px;width:96px" class="form-control" placeholder="请输入">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--题型区-->
+            <div ng-switch="Qtype">
+                <div id="SingleChoiceDiv" class="wrap-item-content" ng-switch-when="0">
+                    <div class="item-stem-wrap">
+                        <div id="Qbody" contenteditable="true" placeholder="题干，点击编辑(必填)" style="cursor:text"></div>
+                    </div>
+                    <div id="itemOpts" class="item-opts">
+                        <div class="item-opt" id="A" index="0">
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="A">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">A</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+                                <div id="opt0" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+                            </div>
+                        </div>
+                        <div class="item-opt" id="B" index="1">
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="B">
+
+                                <span class="checkmark"></span>
+                                <span class="opt-id">B</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+
+                                <div id="opt1" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div>
+                        <div class="item-opt" id="C" index="2">
+
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="C">
+
+                                <span class="checkmark"></span>
+                                <span class="opt-id">C</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+
+                                <div id="opt2" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div>
+                        <div class="item-opt" id="D" index="3">
+
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="D">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">D</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+
+                                <div id="opt3" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="addItem" class="btn-add-item-opt">+增加选项</div>
+                    <div class="item-analysis">
+                        <div class="analysis-txt">试题解析：</div>
+                        <div contenteditable="true" class="item-analysis-content" placeholder="试题解析，点击编辑"></div>
+                    </div>
+                </div>
+                <div id="MultiChoiceDiv" class="wrap-item-content"  ng-switch-when="1">
+                    <div class="item-stem-wrap">
+                        <div id="Qbody" contenteditable="true" placeholder="题干，点击编辑(必填)" style="cursor:text"></div>
+                    </div>
+                    <div id="itemOpts" class="item-opts">
+                        <div class="item-opt" id="A" index="0">
+                            <label class="ez-checkbox-right">
+                                <input type="checkbox" name="checkboxCheck" value="A">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">A</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+                                <div id="opt0" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div>   
+                        <div class="item-opt" id="B" index="1">
+
+                            <label class="ez-checkbox-right">
+                                <input type="checkbox" name="checkboxCheck" value="B">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">B</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+                                <div id="opt1" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div> 
+                        <div class="item-opt" id="C" index="2">
+
+                            <label class="ez-checkbox-right">
+                                <input type="checkbox" name="checkboxCheck" value="C">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">C</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+                                <div id="opt2" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div> 
+                        <div class="item-opt" id="D" index="3">
+
+                            <label class="ez-checkbox-right">
+                                <input type="checkbox" name="checkboxCheck" value="D">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">D</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <span class="delete" style="cursor:pointer">
+                                    <span class="fa fa-times-circle-o"></span>
+                                </span>
+                                <div id="opt3" contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)" style="cursor:text"></div>
+
+                            </div>
+
+                        </div> 
+                    </div>
+                    <div id="addItem" class="btn-add-item-opt">+增加选项</div>
+                    <div class="item-analysis">
+                        <div class="analysis-txt">试题解析：</div>
+                        <div contenteditable="true" class="item-analysis-content" placeholder="试题解析，点击编辑"></div>
+                    </div>
+                </div>
+                <div id="TFDiv" class="wrap-item-content"ng-switch-when="2">
+                    <div class="item-stem-wrap">
+                        <div contenteditable="true" placeholder="题干，点击编辑(必填)"></div>
+                    </div>
+                    <div class="item-opts">
+                        <div class="item-opt" id="A" index="0">
+
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="A">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">A</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <div contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)">正确</div>
+                            </div>
+
+                        </div>
+                        <div class="item-opt" id="B" index="1">
+
+                            <label class="ez-radio-right">
+                                <input type="radio" name="radioCheck" value="B">
+                                <span class="checkmark"></span>
+                                <span class="opt-id">B</span>
+                            </label>
+                            <div class="opt-content-wrap">
+                                <div contenteditable="true" placeholder="选项，点击编辑；选中即设置正确答案，将作为判分答案(必填)">错误</div>
+                            </div>
+
+                        </div>
+                    </div>  
+                    <div class="item-analysis">
+                        <div class="analysis-txt">试题解析：</div>
+                        <div contenteditable="true" class="item-analysis-content" placeholder="试题解析，点击编辑"></div>
+                    </div>
+                </div>
+                <div id="BlankDiv" class="wrap-item-content" ng-switch-when="3">
+                    <div class="item-stem-wrap">
+                        <div id="Qbody" contenteditable="true" class="item-stem" placeholder="题干，点击编辑(必填)"></div>
+                    </div>
+                    <div id="addItem" class="btn-add-item-opt">+添加填空项</div>
+                    <hr />
+                    <div class="checkbox checkbox-custom pull-left">
+                        <input type="checkbox" class="option_group" id="option_group">
+                        <label for="option_group"></label>
+                    </div>
+                    <label for="option_group">&nbsp; 允许考生答案与参考答案顺序不一致</label>
+                    @*<hr />
+                    <div class="item-sa-key">
+                        <div contenteditable="true" class="item-sa-key-content" placeholder="参考答案，点击编辑"></div>
+                    </div>*@
+                    <div class="item-analysis">
+                        <div class="analysis-txt">试题解析：</div>
+                        <div contenteditable="true" class="item-analysis-content" placeholder="试题解析，点击编辑"></div>
+                    </div>
+                </div>
+                <div id="QADiv" class="wrap-item-content"ng-switch-when="4">
+                    <div class="item-stem-wrap">
+                        <div id="Qbody" contenteditable="true" class="item-stem" placeholder="题干，点击编辑(必填)"></div>
+                    </div>
+                    <div class="item-sa-key">
+                        <div contenteditable="true" class="item-sa-key-content" placeholder="参考答案，点击编辑"></div>
+                    </div>
+
+                    <div class="item-analysis">
+                        <div class="analysis-txt">试题解析：</div>
+                        <div contenteditable="true" class="item-analysis-content" placeholder="试题解析，点击编辑"></div>
+                    </div>
+                </div>
+                <div id="ComprehensiveDiv" class="wrap-item-content" ng-switch-when="5">
+                    <div class="item-stem-wrap">
+                        <div id="Qbody" class="item-stem" contenteditable="true" placeholder="大题题干，点击编辑(必填)"></div>
+                    </div>
+                    <div class="sub-items">
+                        @*每个题型的边框*@
+                        <div class="item-content-groups">
+                            @*此处添加子试题*@
+                            
+                        </div>
+
+                        <div class="wrap-add-btns">
+                            <div class="btn-add-item">
+                                <ul class="add-item-type" style="display:none">
+                                    <li>单选题</li>
+                                    <li>多选题</li>
+                                    <li>判断题</li>
+                                    <li>填空题</li>
+                                </ul>
+                                <button id="addSubItem" class="btn btn-primary">新增子试题</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-2 col-md-offset-2">
+            <button id="CreateNewQuestionBtn" class="btn btn-primary">添加</button>
+        </div>
+        <div class="col-md-2">
+            <button id="CancelBtn" class="btn btn-default">取消</button>
+        </div>
+    </div>
+    <br /><br />
+</div>
+
+<div class="modal fade" id="seniorEdit" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">高级编辑</h4>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-yellow save-seniorEditContent" data-dismiss="modal">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer1" style="text-align: center; font-size: 9pt; background-image: url(Images/题库中间背景2.jpg); background-repeat: repeat-y; height: 63px; width: 1000px; margin: 0 auto; padding-top: 15px;">
+    地址：陕西省西安市咸宁西路28号&nbsp; 邮编：710049<br />
+    网址:www.xjtu.edu.cn&nbsp; 邮箱：xjetec@mail.xjtu.edu.cn<br />
+    版权所有：西安交通大学计算机教学实验中心
+</div>

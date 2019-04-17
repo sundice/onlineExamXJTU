@@ -1,0 +1,147 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Navigation
+@using Abp.Web.Mvc.Extensions
+@using MyCompanyName.AbpZeroTemplate.Web.Areas.Mpa.Models.CreatePaper
+@model QtypeInfoViewModel
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Test;//上面所定义就是这个常量，作用就是选中菜单时会高亮
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Test/Progess.css")
+    @Html.IncludeStyle("~/libs/bootstrap-table/bootstrap-table.css")
+}
+
+@section Scripts
+{
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table.js")
+    @Html.IncludeScript("~/libs/bootstrap-table/bootstrap-table-zh-CN.js")
+    @Html.IncludeScript("~/Areas/Mpa/Views/Test/QtypeInfo.js")
+
+}
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>新建试卷</span> <small>题型信息</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-10">
+
+    <div id="step">
+        <div class="step-wrap">
+            <div class="step-bg"></div>
+            <div class="step-progress"></div>
+            <ul class="step">
+                <li class="step-item active">
+                    <div class="step-item-num"><span>1</span></div>
+                    <div class="step-item-title">试卷信息</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>2</span></div>
+                    <div class="step-item-title">备选题集</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>3</span></div>
+                    <div class="step-item-title">组卷方式</div>
+                <li class="step-item">
+                    <div class="step-item-num"><span>4</span></div>
+                    <div class="step-item-title">组卷完成</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+</div>@*进度条*@
+<div id="RefreshDiv">
+    <div>
+        <div class="portlet light margin-bottom-10">
+            <div class="row">
+                <div class="portlet-title">
+                    <div class="form-group col-sm-6 col-md-3">
+                        <label for="IndexLabel"><strong>序号：</strong></label>
+                        <Label id="IndexLabel" name="Index">@Model.Index</Label>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <label for="CourseNameLabel"><strong>课程名：</strong></label>
+                        <Label id="CourseNameLabel" name="CourseName">@Model.CourseName</Label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3">
+                        <label for="ScopeLabel"><strong>章节：</strong></label>
+                        <Label id="ScopeLabel" name="Scope">@Model.Scope</Label>
+                    </div>
+                    <div class="form-group col-sm-6 col-md-3">
+                        <label for="KnowledgePointLabel"><strong>知识点：</strong></label>
+                        <Label id="KnowledgePointLabel" name="KnowledgePoint">@Model.KnowledgePoint</Label>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="portlet light">
+            <div id="label">
+                <strong>题目分布</strong>
+            </div>
+            <form id="QtypeInfoForm">
+                <table id="QtypeInfoTable" class="table table-striped margin-bottom-10">
+                    <tr>
+                        <th>选择题</th>
+                        <th>判断题</th>
+                        <th>填空题</th>
+                        <th>问答题</th>
+                        <th>编程题</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="number" name="Choice" min="0" style="width:40px;height:20px" />
+                            <label>/@Model.Choice</label>
+                        </td>
+
+                        <td>
+                            <input type="number" name="TF" min="0" style="width:40px;height:20px" />
+                            <label>/@Model.TF</label>
+                        </td>
+
+                        <td>
+                            <input name="Blank" type="number" min="0" style="width:40px;height:20px" />
+                            <label>/@Model.Black</label>
+                        </td>
+
+                        <td>
+                            <input name="QA" type="number" min="0" style="width:40px;height:20px" />
+                            <label>/@Model.QA</label>
+                        </td>
+                        <td>
+                            <input name="Program" type="number" style="width:40px;height:20px" />
+                            <label>/@Model.program</label>
+                        </td>
+
+                    </tr>
+                </table>
+            </form>
+
+            <div class="row light margin-bottom-0">
+                <div class="col-md-2 col-md-offset-2">
+                    <button type="button" id="QtypeInfoSureStep" class="btn btn-default">确定</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="button" id="QtypeInfoCancelStep" class="btn btn-primary">取消</button>
+                </div>
+
+            </div>@*步骤按钮*@
+        </div>
+    </div>
+</div>
+<div id="footer1" style="text-align: center; font-size: 9pt; background-image: url(Images/题库中间背景2.jpg); background-repeat: repeat-y; height: 63px; width: 1000px; margin: 0 auto; padding-top: 15px;">
+    地址：陕西省西安市咸宁西路28号&nbsp; 邮编：710049<br />
+    网址:www.xjtu.edu.cn&nbsp; 邮箱：xjetec@mail.xjtu.edu.cn<br />
+    版权所有：西安交通大学计算机教学实验中心
+</div>
+
+

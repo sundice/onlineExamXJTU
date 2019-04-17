@@ -1,0 +1,14 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Areas.Mpa.Models.Common.Modals
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("添加试题"))
+
+<div class="modal-body">
+    <form name="QuestionForm">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="QuestionContent" value="@Model.QuestionContent" class="form-control edited" required>
+            <label>题目内容</label>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

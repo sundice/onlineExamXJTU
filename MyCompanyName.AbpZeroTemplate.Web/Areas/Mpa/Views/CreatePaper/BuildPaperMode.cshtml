@@ -1,0 +1,84 @@
+﻿<div class="portlet light">
+    <div class="row">
+        <label class="col-lg-2">请选择组卷方式</label>
+        <label class="col-lg-2">
+            <input type="radio" value="AIBuildPaper" checked />
+            智能组卷
+        </label>
+        <label class="col-lg-2">
+            <input type="radio" value="ManualBuildPaper" />
+            人工组卷
+        </label>
+    </div>
+    <table id="QuestionTypeControlTable" class="table table-striped table-hover">
+        <tr>
+            <th>题型</th>
+            <th>数量</th>
+            <th>分值</th>
+            <th>总计</th>
+            <th>操作</th>
+        </tr>@*表头*@
+        <tr>
+            <td>选择题</td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+            </td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+                <label>分</label>
+            </td>
+            <td>
+                <label id="ChoiceQuestionScore"></label>
+            </td>
+            <td>
+                <a>删除</a>
+            </td>
+        </tr>@*选择题*@
+        <tr>
+            <td>填空题</td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+            </td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+                <label>分</label>
+            </td>
+            <td>
+                <label id="BlankQuestionScore"></label>
+            </td>
+            <td>
+                <a>删除</a>
+            </td>
+        </tr>@*填空题*@
+        <tr>
+            <td>判断题</td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+            </td>
+            <td>
+                <input type="number" class="form-control col-lg-1" style="width:8px"/>
+                <label>分</label>
+            </td>
+            <td>
+                <label id="TFQuestionScore"></label>
+            </td>
+            <td>
+                <a>删除</a>
+            </td>
+        </tr>@*判断题*@
+    </table>
+
+    <div class="row">
+        <label for="TotalScoreLabel">总分：</label>
+        <label id="TotalScoreLabel"></label>
+    </div>
+    <div class="row margin-bottom-0">
+        <div class="col-md-2 col-md-offset-2">
+            <button type="button" id="ModePreStep" class="btn btn-default">上一步</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" id="ModeNextStep" class="btn btn-primary">下一步</button>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Paper PaperId="1" QuestionCount="27" SumScore="100">
+  <QuestionType QType="0" ScoreOfType="2" Count="12"><!--选择题 12道-->
+    <Questions QuestionID="4823" Score="2" Chapter="7"><!--单独的一道题-->
+      <Question QType="0">
+        <Body><!--题干-->
+          与O（n^2）时间复杂度相同的函数有（  ）。
+        </Body>
+        <Options Num="4"><!--选项-->
+        <OptionItems Order="0">A）T(n)=2n+1</OptionItems>
+        <OptionItems Order="1">B）T(n)=n^2+n+1</OptionItems>
+        <OptionItems Order="2">C）T(n)=3n^3+2n^2+1</OptionItems>
+        <OptionItems Order="3">D）T(n)=2^n-n^2+n-1</OptionItems>
+      </Options>
+        <Answer Num="1">
+          <AnswerItems>1</AnswerItems>
+        </Answer>
+        <Attachment>0</Attachment>
+      </Question>
+    </Questions>
+    <Questions QuestionID="4772" Score="2" Chapter="6">
+      <Question QType="0">
+        <Body>以下的（ ）循环中，先执行循环中的语句，然后才检查条件。
+    </Body>
+        <Options Num="4">
+  <OptionItems Order="0">A）whlie</OptionItems>
+  <OptionItems Order="1">B）do-while</OptionItems>
+  <OptionItems Order="2">C）for</OptionItems>
+  <OptionItems Order="3">D）for-while</OptionItems>
+</Options>
+        <Answer Num="1"><AnswerItems>1</AnswerItems></Answer>
+        <Attachment>0</Attachment>
+      </Question>
+    </Questions>
+    
+    
+<Questions QuestionID="4822" Score="2" Chapter="7"><Question QType="0"><Body>若有序表的关键字序列为(b,c,d,e,f,g,q,r,s,t)，则在折半查找关键字s的过程中，先后进行比较的关键字依次为(　　)</Body><Options Num="4"><OptionItems Order="0">A） g,t,s</OptionItems><OptionItems Order="1">B） g,r,s</OptionItems><OptionItems Order="2">C） f,t,s</OptionItems><OptionItems Order="3">D） f,r,s</OptionItems></Options><Answer Num="1"><AnswerItems>3</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4773" Score="2" Chapter="6"><Question QType="0"><Body>用于分开for循环中的表达式的3个部分的符号是（ ）。
+</Body><Options Num="4"><OptionItems Order="0">A） ，</OptionItems><OptionItems Order="1">B） ；</OptionItems><OptionItems Order="2">C）.</OptionItems><OptionItems Order="3">D）-</OptionItems></Options><Answer Num="1"><AnswerItems>1</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4771" Score="2" Chapter="6"><Question QType="0"><Body>下列关键字中，不是循环语句使用的是（ ）
+</Body><Options Num="4"><OptionItems Order="0">A）for</OptionItems><OptionItems Order="1">B）do</OptionItems><OptionItems Order="2">C）while</OptionItems><OptionItems Order="3">D）switch</OptionItems></Options><Answer Num="1"><AnswerItems>3</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4774" Score="2" Chapter="6"><Question QType="0"><Body>下列for循环的循环次数是（ ）次。
+  int i=0,j=0;
+   for(; !j&amp;&amp;i&lt;=5;i++)
+   j++;
+</Body><Options Num="4"><OptionItems Order="0">A）5</OptionItems><OptionItems Order="1">B）1</OptionItems><OptionItems Order="2">C）6</OptionItems><OptionItems Order="3">D）无限</OptionItems></Options><Answer Num="1"><AnswerItems>1</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="5406" Score="2" Chapter="7"><Question QType="0"><Body>下面流程图描述的算法完成的功能是（ ）。</Body><Options Num="4"><OptionItems Order="0">A）计算1+2+3+ …… + 99</OptionItems><OptionItems Order="1">B）计算1+2+3+ …… + 100</OptionItems><OptionItems Order="2">C）计算1+(1+2)+(1+2+3)+…(1+2+3+…99)</OptionItems><OptionItems Order="3">D）计算2+3+4+…… + 99 + 100</OptionItems></Options><Answer Num="1"><AnswerItems>2</AnswerItems></Answer><Attachment><Image><ImagesID>138</ImagesID></Image></Attachment></Question></Questions><Questions QuestionID="4770" Score="2" Chapter="6"><Question QType="0"><Body>转义字符“\n”用于表示（ ）。
+</Body><Options Num="4"><OptionItems Order="0">A）换页</OptionItems><OptionItems Order="1">B）反斜杠</OptionItems><OptionItems Order="2">C）制表符</OptionItems><OptionItems Order="3">D）换行</OptionItems></Options><Answer Num="1"><AnswerItems>3</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4775" Score="2" Chapter="6"><Question QType="0"><Body>分析下面的代码片段，程序执行后count的值为（ ）
+ int i,j,count=0;
+ for(i=4;i&gt;0;i--)
+      for(j=0;j&lt;6;j++)
+           count++;
+</Body><Options Num="4"><OptionItems Order="0">A）10</OptionItems><OptionItems Order="1">B）20</OptionItems><OptionItems Order="2">C）24</OptionItems><OptionItems Order="3">D）28</OptionItems></Options><Answer Num="1"><AnswerItems>2</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4750" Score="2" Chapter="6"><Question QType="0"><Body>下列语句中符合C语言语法的赋值语句是（  ）。
+</Body><Options Num="4"><OptionItems Order="0">A）a=7+b+c=a+7</OptionItems><OptionItems Order="1">B）a=a+7</OptionItems><OptionItems Order="2">C）a=7+b,b++,a+7;</OptionItems><OptionItems Order="3">D）a=7+b,c=a+7=b;</OptionItems></Options><Answer Num="1"><AnswerItems>2</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4754" Score="2" Chapter="6"><Question QType="0"><Body>若x和y都是int型变量，x=100、y=200，且有下面的程序片段
+      printf("%d",(x,y) );
+上面程序片段的输出结果是（  ）。
+</Body><Options Num="4"><OptionItems Order="0">A）200</OptionItems><OptionItems Order="1">B）100</OptionItems><OptionItems Order="2">C）100 200</OptionItems><OptionItems Order="3">D）输入格式符不够，输出不确定的值</OptionItems></Options><Answer Num="1"><AnswerItems>0</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4753" Score="2" Chapter="6"><Question QType="0"><Body>有以下程序段
+        int  k=0;
+        while(k=1)k++;
+while循环执行的次数是（  ）。
+</Body><Options Num="4"><OptionItems Order="0">A）无限次</OptionItems><OptionItems Order="1">B）有语法错，不能执行</OptionItems><OptionItems Order="2">C）一次也不执行</OptionItems><OptionItems Order="3">D）执行1次</OptionItems></Options><Answer Num="1"><AnswerItems>0</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions></QuestionType>
+  <QuestionType QType="2" ScoreOfType="1" Count="5">
+    <Questions QuestionID="4846" Score="1" Chapter="7">
+      <Question QType="2"><Body>算法是编制程序代码之前对问题处理思想的一种描述，它与所采用的计算机语言无直接联系。
+      </Body>
+        <Answer Num="1"><AnswerItems>1</AnswerItems></Answer>
+        <Attachment>0</Attachment>
+      </Question>
+    </Questions>
+    <Questions QuestionID="6221" Score="1" Chapter="5">
+      <Question QType="2">
+        <Body>声明语句：int array[9] 表示定义的数组array有9个元素。</Body>
+        <Answer Num="1"><AnswerItems>1</AnswerItems></Answer>
+        <Attachment>0</Attachment>
+      </Question>
+    </Questions>
+    <Questions QuestionID="6223" Score="1" Chapter="6">
+      <Question QType="2">
+        <Body>判断以下语句的正确性:
+int *p;int a[10];*p=a;</Body>
+        <Answer Num="1"><AnswerItems>0</AnswerItems></Answer>
+        <Attachment>0</Attachment>
+      </Question></Questions>
+    <Questions QuestionID="6222" Score="1" Chapter="7"><Question QType="2">
+      <Body>除了用流程图之外，用自然语言也利用描述算法。</Body>
+      <Answer Num="1"><AnswerItems>1</AnswerItems></Answer>
+      <Attachment>0</Attachment>
+    </Question></Questions>
+    <Questions QuestionID="6224" Score="1" Chapter="6">
+      <Question QType="2">
+        <Body>用const定义的常变量不占内存单元</Body>
+        <Answer Num="1"><AnswerItems>0</AnswerItems></Answer>
+        <Attachment>0</Attachment>
+      </Question></Questions></QuestionType>
+  <QuestionType QType="3" ScoreOfType="2" Count="5"><Questions QuestionID="5506" Score="2" Chapter="7"><Question QType="3"><Body Blanks="1">下面流程图表示的算法完成后，变量SUM的值是 (  ) 。</Body><Answer Num="1"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>14</Substitutions></AnswerItems></Answer><Attachment><Image><ImagesID>151</ImagesID></Image></Attachment></Question></Questions><Questions QuestionID="4833" Score="2" Chapter="6"><Question QType="3"><Body Blanks="1">设a,b,c均为整型变量，要用C语言描述命题：c是偶数。则应该是（  ）。</Body><Answer Num="1"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>（c%2)==0</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4834" Score="2" Chapter="6"><Question QType="3"><Body Blanks="1">若有定义语句：int m=5,y=2;则执行表达式y+=y-=m*=y后，y=（ ）。</Body><Answer Num="1"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>-16</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4829" Score="2" Chapter="6"><Question QType="3"><Body Blanks="1">一个C语言源程序可以由若干函数组成，其中至少应含有一个（ ）函数。</Body><Answer Num="1"><AnswerItems Order="0" SubstitutionsNum="2"><Substitutions>main</Substitutions><Substitutions>主</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="4835" Score="2" Chapter="6"><Question QType="3"><Body Blanks="1">在C语言中，二维数组元素在内存中的存放顺序是（  ）(写行列顺序)。</Body><Answer Num="1"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>先行后列</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></Question></Questions></QuestionType><QuestionType QType="7" ScoreOfType="15" Count="3"><Questions QuestionID="5397" Score="15" Chapter="5"><Question QType="7"><Body>输入两个正整数m和n，分别求它们的最大公约数和最小公倍数，并输出。
+输入输出格式要求：
+程序运行后，在一行中输入两个正整数，在下一行输出结果，数据之间以空格分隔。
+例如：
+3 7
+1 21
+</Body><Answer Num="1"><AnswerItems SubstitutionsNum="1">#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+ int m,n,p,r,temp; 
+ scanf("%d %d",&amp;m,&amp;n);
+ if(m&amp;lt;n){
+  temp=m;
+  m=n;
+  n=temp;}
+ p=m*n;
+ while(n!=0){
+  r=m%n;
+  m=n;
+  n=r;}
+ printf("%d %d\n",m,p/m);
+ return 0;
+}
+</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="5850" Score="15" Chapter="6"><Question QType="7"><Body>     输入n,m,正整数，n&lt;=m, 找出[n, m]区间内各位数字都不同并且能被3,5,7整除的偶数。
+     输入：正n,m，用空格隔开，n&lt;=m.
+     输出：若干符合条件的数，以一个空格隔开。区间内没有满足条件的数时显示-1.
+    输入输出样例1：
+ 输入：100 500
+ 输出：210 420
+
+   输入输出样例2：
+ 输入：100 200
+ 输出：-1
+</Body><Answer Num="1"><AnswerItems SubstitutionsNum="1"><Substitutions>//Zhao Yingliang
+// 2015.2.11am 
+#include&lt;stdio.h&gt;
+#include&lt;math.h&gt;
+void sort(int a[],int n)
+{
+ int i,j;
+ for(i=0;i&lt;n-1;i++)
+ {
+  for(j=0;j&lt;n-1-i;j++)
+  {
+   if(a[j]&gt;a[j+1])
+   {
+    int tmp;
+    tmp=a[j];
+    a[j]=a[j+1];
+    a[j+1]=tmp;
+   }
+  }
+ } 
+}
+int butong(int a[],int n)
+{
+ int i;
+ int flag=1;
+ for(i=0;i&lt;n-1;i++)
+ {
+  if(a[i]==a[i+1])
+  {
+   flag=0;
+   break;
+  }
+ }
+ return flag;
+}
+int fenli(int x,int a[])
+{
+ int k=0;
+ while(x!=0)
+ {
+  a[k]=x%10;
+  x=x/10;
+  k++;
+ }
+ if(k==0)
+ {
+  a[0]=0;
+  k=1;
+ }
+ return k;
+ } 
+void fun(int n,int m)
+{
+ int a[50];
+ int flag=0;
+ int i;
+ int k;
+ for(i=n;i&lt;=m;i++)
+ {
+  if(i%(2*3*5*7)==0)
+  {
+   k=fenli(i,a);
+   sort(a,k);
+   if(butong(a,k)==1)
+   {
+    printf("%d ",i);
+    flag++;
+   } 
+    }
+  } 
+  if(flag==0)
+  {
+   printf("-1\n");
+  }
+  else
+  {
+   printf("\n");
+  }
+
+}
+int main()
+{
+ int k1;
+ 
+ {
+  int n,m; 
+   scanf("%d%d",&amp;n,&amp;m);
+         fun(n,m);     
+ } 
+ return 0;
+}</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></Question></Questions><Questions QuestionID="5320" Score="15" Chapter="7"><Question QType="7"><Body>编程，查找同时在第一个数组和第二个数组中的全部元素。
+
+首先输入数组a的元素个数，再输入数组a的各个元素的值，接着输入数组b的元素个数，再输入数组b的各个元素的值，输出同时在两个数组的全部元素。
+
+样例输入：
+3
+1 2 3
+5
+1 3 5 7 9
+
+样例输出：
+1 3
+</Body><Answer Num="1"><AnswerItems SubstitutionsNum="1">#include &amp;lt;stdio.h&amp;gt;
+#include &amp;lt;math.h&amp;gt;
+
+int main() {
+
+ int a[50];
+ int n;
+ scanf("%d", &amp;n);
+ for (int i = 0; i&amp;lt;n; i++){
+  scanf("%d", &amp;a[i]);
+ }
+ int b[50];
+ int m;
+ scanf("%d", &amp;m);
+ for (int i = 0; i &amp;lt; m; i++){
+  scanf("%d", &amp;b[i]);
+ }
+ for (int i = 0; i &amp;lt;n; i++){
+  int exist = 0;
+  for (int j = 0; j &amp;lt;m; j++){
+   if (a[i] == b[j]){
+    printf("%d ", a[i]);
+    break;
+   }
+  }
+ }
+ printf("\r\n");
+ return 1;
+}
+</AnswerItems></Answer><Attachment>0</Attachment></Question></Questions></QuestionType><QuestionType QType="8" ScoreOfType="8" Count="2"><Questions QuestionID="6214" Score="8" Chapter="7"><Question QType="8" Num="1"><Body>以下程序的功能是在数组a中查找x，结果为x在a中的位置（从1开始）。请填空将程序补充完整。</Body><SubQuestion QType="3" order="0" Score="8"><SubQuestionBody Blanks="2">#include&lt;stdio.h&gt;
+int main()
+{
+ int a[11],x,i;
+ printf("Enter 10 integers:\n");
+ for(i=1;i&lt;=10;i++)
+ {
+  scanf("%d",a+i);
+ }
+ printf("Enter x:");
+ scanf("%d",&amp;x);
+ *a= _____1_____;
+ i=10;
+ while(x!=*(a+i))
+  _____2_____;   
+ if( i&gt;0 )
+  printf("The position of %d is: %4d\n",x,i);
+ else
+  printf("%d Not been found!\n",x);
+
+return 0;
+}</SubQuestionBody><Answer Num="2"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>i</Substitutions></AnswerItems><AnswerItems Order="1" SubstitutionsNum="2"><Substitutions>i--</Substitutions><Substitutions>i=i-1</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></SubQuestion></Question></Questions><Questions QuestionID="6218" Score="8" Chapter="6"><Question QType="8" Num="1"><Body>有一分数序列如下：
+2/1, 3/2, 5/3, 8/5, 13/8, 21/13, ....
+即后一项的分母为前一项的分子，后项的分子为前一项分子与分母之和，求其前n项之和，n由用户输入。
+请进行填空：
+样例：
+输入：
+6
+输出：
+10.0071</Body><SubQuestion QType="3" Score="8" order="1"><SubQuestionBody>#include&lt;stdio.h&gt;
+void main()
+{
+   int i,n;     
+   double sum=0.0,u,a=1.0,b=2.0,c;     
+   scanf("%d",&amp;n);     
+   for(i=1;i&lt;=n;i++)     
+   {         
+	   u=____1______;         
+	   sum=___2_____;         
+	   c=a+b;         
+	   a=b;         
+	   b=c;     
+   }     
+   printf("%lf",sum); 
+}</SubQuestionBody><Answer Num="2"><AnswerItems Order="0" SubstitutionsNum="1"><Substitutions>b/a</Substitutions></AnswerItems><AnswerItems Order="1" SubstitutionsNum="2"><Substitutions>sum+u</Substitutions><Substitutions>u+sum</Substitutions></AnswerItems></Answer><Attachment>0</Attachment></SubQuestion><Attachment>0</Attachment></Question></Questions></QuestionType></Paper>

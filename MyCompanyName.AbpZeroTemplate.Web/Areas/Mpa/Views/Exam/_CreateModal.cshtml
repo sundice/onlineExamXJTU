@@ -1,0 +1,34 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Areas.Mpa.Models.Common.Modals
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalHeader.cshtml", new ModalHeaderViewModel("添加考试"))
+
+<div class="modal-body">
+    <form name="ExamForm">
+        @*<input type="hidden" name="Id" value="@Model.Id" />*@
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="ExamName" class="form-control edited" required>
+            <label>考试名称</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="CourseName" class="form-control edited" required>
+            <label>考试课程</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="number" name="Class" class="form-control edited" required>
+            <label>班级</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="datetime" name="ExamTime" class="form-control edited" required>
+            <label>考试时间</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Status" class="form-control edited" required>
+            <label>状态</label>
+        </div>
+        <div class="form-group form-md-line-input form-md-floating-label">
+            <input type="text" name="Remarks" class="form-control edited">
+            <label>备注</label>
+        </div>
+    </form>
+</div>
+
+@Html.Partial("~/Areas/Mpa/Views/Common/Modals/_ModalFooterWithSaveAndCancel.cshtml")

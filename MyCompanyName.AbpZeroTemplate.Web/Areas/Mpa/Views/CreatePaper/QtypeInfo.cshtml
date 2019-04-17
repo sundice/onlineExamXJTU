@@ -1,0 +1,39 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Areas.Mpa.Models.CreatePaper
+@model QtypeInfoViewModel
+<div>
+    <div class="portlet light margin-bottom-10">
+        <div class="row">
+            <div class="portlet-title">
+                <div class="col-sm-6 col-md-4">
+                    <label for="CourseNameLabel">课程名：</label>
+                    <Label id="CourseNameLabel"></Label>
+                </div>
+                <div class="form-group col-sm-6 col-md-4">
+                    <label for="ScopeLabel">章节：</label>
+                    <Label id="ScopeLabel"></Label>
+                </div>
+                <div class="form-group col-sm-6 col-md-4">
+                    <label for="KnowledgePointLabel">知识点：</label>
+                    <Label id="KnowledgePointLabel">bla</Label>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="portlet light">
+        <div id="label">
+            <strong>题目分布</strong>
+        </div>
+        <table id="QtypeInfoTable" class="margin-bottom-10"></table>
+
+        <div class="row light margin-bottom-0">
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" id="QtypeInfoPreStep" class="btn btn-default">确定</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="QtypeInfoNextStep" class="btn btn-primary">取消</button>
+            </div>
+
+        </div>@*步骤按钮*@
+    </div>
+</div>

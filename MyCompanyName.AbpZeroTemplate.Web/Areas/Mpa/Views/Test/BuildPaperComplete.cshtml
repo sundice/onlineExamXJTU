@@ -1,0 +1,397 @@
+﻿@using MyCompanyName.AbpZeroTemplate.Web.Navigation
+@using Abp.Web.Mvc.Extensions
+
+@{
+    ViewBag.CurrentPageName = PageNames.App.Tenant.Test;//上面所定义就是这个常量，作用就是选中菜单时会高亮
+}
+@section Styles
+{
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Test/Progess.css")
+    @Html.IncludeStyle("~/Areas/Mpa/Views/Welcome/eztestadmin.css")
+}
+
+@section Scripts
+{
+    @Html.IncludeScript("~/Areas/Mpa/Views/Test/BuildPaperComplete.js")
+}
+
+
+<div class="row margin-bottom-5">
+    <div class="col-xs-6">
+        <div class="page-head">
+            <div class="page-title">
+                <h1>
+                    <span>新建试卷</span> <small>组卷完成</small>
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="portlet light margin-bottom-10">
+
+    <div id="step">
+        <div class="step-wrap">
+            <div class="step-bg"></div>
+            <div class="step-progress"></div>
+            <ul class="step">
+                <li class="step-item active">
+                    <div class="step-item-num"><span>1</span></div>
+                    <div class="step-item-title">试卷信息</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>2</span></div>
+                    <div class="step-item-title">备选题集</div>
+                </li>
+                <li class="step-item">
+                    <div class="step-item-num"><span>3</span></div>
+                    <div class="step-item-title">组卷方式</div>
+                <li class="step-item">
+                    <div class="step-item-num"><span>4</span></div>
+                    <div class="step-item-title">组卷完成</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>@*进度条*@
+
+<div id="RefreshDiv" class="margin-bottom-0">
+    <div class="paper-preview">
+        <ul class="nav nav-tabs">
+            <li class=""><a href="#PaperDescription-id" data-toggle="tab" aria-expanded="false">试卷描述</a></li>
+            <li class="active"><a href="#S0" data-toggle="tab" aria-expanded="true">试卷名称</a></li>
+        </ul>
+        <div class="tab-content">
+
+            <div class="tab-pane" id="PaperDescription-id">
+                <div class="wrap-instr">
+                    <div class="txt-16px txt-bold mb10"></div>
+                    <div class="mb20">
+                        <span id="paperDescriptionSpan">欢迎参加本次考试！</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane active" id="S0">
+
+                <h4 id="paperTitleH4" class="paper-title">
+                    <br><span class="group-score">满分：6分&nbsp;&nbsp;答题限时：至多60分钟</span>
+                </h4>
+
+                <div id="paperPreviewDiv">
+                    <div class="group">
+                        <div class="group-title">
+                            <h3>选择题&nbsp;&nbsp;<span class="group-score">(共 1 题 共 2 分)</span></h3>
+                            <div id="ChoiceDiv" class="items-group">
+                            </div>
+                        </div>
+                    </div>  @*一个group代表一个题型*@
+
+                    <div class="group">
+                        <div class="group-title">
+                            <h3>判断题&nbsp;&nbsp;<span class="group-score">(共 1 题 共 2 分)</span></h3>
+                            <div id="TFDiv" class="items-group">
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="group">
+                        <div class="group-title">
+                            <h3>填空题&nbsp;&nbsp;<span class="group-score">(共 5 题 共 10 分)</span></h3>
+                            <div id="BlankDiv" class="items-group">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="group-title">
+                            <h3>问答&nbsp;&nbsp;<span class="group-score">(共 10 题 共 20 分)</span></h3>
+                            <div id="QADiv" class="items-group">
+                                <div class="sc">
+                                    <div class="item-type clearfix">
+                                        <span class="pull-left">16.</span>
+                                        <span>【单选题】</span>
+                                        <span class="pull-right item-score">总分2 分</span>
+                                        <span class="pull-right mr20 text-gray"></span>
+                                    </div>
+
+                                    <div>
+                                        <div class="pull-right jquery_jplayer_wrap">
+                                            <!-- The jPlayer div must not be hidden. Keep it at the root of the body element to avoid any such problems. -->
+                                            <div id="jquery_jplayer_16" class="cp-jplayer" audio=""></div>
+
+                                            <!-- The container for the interface can go where you want to display it. Show and hide it as you need. -->
+
+                                            <div id="cp_container_16" class="cp-container pull-right">
+                                                <div class="cp-buffer-holder">
+                                                    <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                                                    <div class="cp-buffer-1"></div>
+                                                    <div class="cp-buffer-2"></div>
+                                                </div>
+                                                <div class="cp-progress-holder">
+                                                    <!-- .cp-gt50 only needed when progress is > than 50% -->
+                                                    <div class="cp-progress-1"></div>
+                                                    <div class="cp-progress-2"></div>
+                                                </div>
+                                                <div class="cp-circle-control"></div>
+                                                <ul class="cp-controls">
+                                                    <li><a class="cp-play" tabindex="1">play</a></li>
+                                                    <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="item-stem">把下面的六个图形分为两类，使每一类图形都有各自的共同特征或规律，分类正确的一项是：<div><br></div><img src="https://cdn.eztest.org/media/resource/10944/53629/16_1.png"></div>
+                                        <ul class="item-main">
+
+                                            <li>
+                                                <div class="radio radio-custom">
+                                                    <input disabled="" type="checkbox" id="16-opt-A" name="16">
+                                                    <label for="16-opt-A"></label>
+                                                </div>
+                                                <div class="opt-main">
+                                                    <span class="opt-id">A.</span>①②③，④⑤⑥
+                                                    <span class="pull-right text-gray"></span>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="radio radio-custom">
+                                                    <input disabled="" type="checkbox" id="16-opt-B" name="16">
+                                                    <label for="16-opt-B"></label>
+                                                </div>
+                                                <div class="opt-main">
+                                                    <span class="opt-id">B.</span>①④⑤，②③⑥
+                                                    <span class="pull-right text-gray"></span>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="radio radio-custom">
+                                                    <input disabled="" type="checkbox" id="16-opt-C" name="16">
+                                                    <label for="16-opt-C"></label>
+                                                </div>
+                                                <div class="opt-main">
+                                                    <span class="opt-id">C.</span>①⑤⑥，②③④
+                                                    <span class="pull-right text-gray"></span>
+                                                </div>
+                                            </li>
+
+                                            <li>
+                                                <div class="radio radio-custom">
+                                                    <input disabled="" type="checkbox" id="16-opt-D" name="16" checked="'checked'">
+                                                    <label for="16-opt-D"></label>
+                                                </div>
+                                                <div class="opt-main">
+                                                    <span class="opt-id">D.</span>①④⑥，②③⑤
+                                                    <span class="pull-right text-gray"></span>
+                                                </div>
+                                            </li>
+
+                                        </ul>
+                                        <div class="item-analysis-reference-wrap">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="group-title">
+                            <h3>编程题&nbsp;&nbsp;<span class="group-score">(共 10 题 共 50 分)</span></h3>
+                            <div id="ProgramDiv" class="items-group">
+                                <div class="mq">
+                                    <div class="item-type">
+                                        <span class="pull-left">26-30.</span>
+                                        <span>【复合题】</span>
+                                        <span class="pull-right item-score">共 25 分</span>
+                                    </div>
+                                    <div>
+                                        <div class="item-stem">
+                                            <p>2013年二季度，我国税收月收入同比增速逐步提高，分别为7.9%、8.3%、和12.9%。截止2013年6月，全国税收总收入完成59260.61亿元，同比增长7.9%，较上年同期回落1.9个百分点。其中，国内增值税、企业所得税同比分别增长6.6%和14.2%，较上年同期增速分别回落1.5和3.1个百分点;房产税同比分别增长11%，比上年同期增速回落19.1个百分点;进口货物增值税消费税和关税同比分别下贱17.1%和16%，比上年同期增速分别回落24.5和22.9个百分点。</p>
+                                            <p style="text-align: center; font-weight: bold;">2013年1-6月份全国主要税种收入表(单位：亿元)</p>
+                                            <table style="width: 100.0%; border-collapse: collapse;" border="1" cellspacing="0" cellpadding="0" align="center">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>税目</td>
+                                                        <td>收入</td>
+                                                        <td>比上年同期增收</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>企业所得税</td>
+                                                        <td>14963.38</td>
+                                                        <td>1857.07</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>国内增值税</td>
+                                                        <td>14319.5</td>
+                                                        <td>887.11</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>营业税</td>
+                                                        <td>8845.14</td>
+                                                        <td>1007.2</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>进口货物增值税消费税</td>
+                                                        <td>6382.82</td>
+                                                        <td>-1313.78</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>国内消费税</td>
+                                                        <td>4353.49</td>
+                                                        <td>150.93</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>个人所得税</td>
+                                                        <td>3630.79</td>
+                                                        <td>359.1</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>契税</td>
+                                                        <td>1946.04</td>
+                                                        <td>554.07</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>车辆购置税</td>
+                                                        <td>1236.7</td>
+                                                        <td>150.03</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>关税</td>
+                                                        <td>1212.1</td>
+                                                        <td>-230.9</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>城镇土地使用税</td>
+                                                        <td>910.66</td>
+                                                        <td>67.44</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>房产税</td>
+                                                        <td>822.3</td>
+                                                        <td>81.7</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>证券交易印花税</td>
+                                                        <td>223.39</td>
+                                                        <td>47.6</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>进口货物退增值税消费税</td>
+                                                        <td>-5300.86</td>
+                                                        <td>15.5</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="sub-item sc">
+                                            <div class="item-type clearfix">
+                                                <span class="pull-left">26.</span>
+                                                <span>【单选题】</span>
+                                                <span class="pull-right ml20 item-score">总分5分</span>
+                                                <span class="pull-right text-gray"></span>
+
+                                            </div>
+                                            <div>
+                                                <div class="item-stem">2012年1~6月全国税收总收入：</div>
+                                                <ul class="item-main">
+
+                                                    <li>
+                                                        <div class="radio radio-custom">
+                                                            <input disabled="" type="checkbox" id="26-opt-A" name="26">
+                                                            <label for="26-opt-A"></label>
+                                                        </div>
+                                                        <div class="opt-main">
+                                                            <span class="opt-id">A.</span>52973.28亿元
+                                                            <span class="pull-right text-gray">
+
+                                                            </span>
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="radio radio-custom">
+                                                            <input disabled="" type="checkbox" id="26-opt-B" name="26" checked="'checked'">
+                                                            <label for="26-opt-B"></label>
+                                                        </div>
+                                                        <div class="opt-main">
+                                                            <span class="opt-id">B.</span>54921.79亿元
+                                                            <span class="pull-right text-gray">
+
+                                                            </span>
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="radio radio-custom">
+                                                            <input disabled="" type="checkbox" id="26-opt-C" name="26">
+                                                            <label for="26-opt-C"></label>
+                                                        </div>
+                                                        <div class="opt-main">
+                                                            <span class="opt-id">C.</span>56938.68亿元
+                                                            <span class="pull-right text-gray">
+
+                                                            </span>
+                                                        </div>
+
+                                                    </li>
+
+                                                    <li>
+                                                        <div class="radio radio-custom">
+                                                            <input disabled="" type="checkbox" id="26-opt-D" name="26">
+                                                            <label for="26-opt-D"></label>
+                                                        </div>
+                                                        <div class="opt-main">
+                                                            <span class="opt-id">D.</span>63942.19亿元
+                                                            <span class="pull-right text-gray">
+
+                                                            </span>
+                                                        </div>
+
+                                                    </li>
+
+                                                </ul>
+                                                <div class="item-analysis-reference-wrap">
+
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2 col-md-offset-2">
+                <button type="button" id="CompletePreStep" class="btn btn-default">上一步</button>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="BrowsePaperStep" class="btn btn-primary">发布</button>
+            </div>
+
+        </div>
+    </div> 
+</div>
+
+<div id="footer1" style="text-align: center; font-size: 9pt; background-image: url(Images/题库中间背景2.jpg); background-repeat: repeat-y; height: 63px; width: 1000px; margin: 0 auto; padding-top: 15px;">
+    地址：陕西省西安市咸宁西路28号&nbsp; 邮编：710049<br />
+    网址:www.xjtu.edu.cn&nbsp; 邮箱：xjetec@mail.xjtu.edu.cn<br />
+    版权所有：西安交通大学计算机教学实验中心
+</div>
+
+
